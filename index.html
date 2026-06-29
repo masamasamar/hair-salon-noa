@@ -44,7 +44,8 @@
       z-index: 1000;
       border-bottom: 1px solid #eee;
     }
-    nav .logo { font-size: 18px; letter-spacing: 0.2em; font-weight: 300; }
+    nav .logo { display: flex; align-items: center; }
+    nav .logo-img { height: 44px; width: auto; display: block; }
     nav ul { list-style: none; display: flex; gap: 32px; }
     nav ul a { text-decoration: none; color: var(--black); font-size: 12px; letter-spacing: 0.12em; transition: color 0.2s; }
     nav ul a:hover { color: var(--gray); }
@@ -167,6 +168,16 @@
       font-size: 14px;
       color: var(--gray);
       line-height: 2.2;
+    }
+    #concept .intro {
+      margin-top: 48px;
+      padding: 40px 44px;
+      background: var(--light);
+      font-size: 15px;
+      line-height: 2.2;
+      color: var(--black);
+      letter-spacing: 0.04em;
+      border-left: 3px solid #c8b99a;
     }
 
     /* ========== オーナー ========== */
@@ -622,7 +633,9 @@
 
   <!-- ナビ -->
   <nav>
-    <div class="logo">hair salon NOA</div>
+    <div class="logo">
+      <img src="images/logo.png" alt="hair salon NOA" class="logo-img">
+    </div>
     <ul>
       <li><a href="#concept">CONCEPT</a></li>
       <li><a href="#styles">STYLE</a></li>
@@ -671,6 +684,12 @@
       hair salon NOA は、栃木県小山市に2025年12月オープンした美容室です。<br>
       オーナー・大橋一智が、お客様一人ひとりに合ったスタイルをご提案します。<br>
       「手入れが楽でおしゃれ」を合言葉に、日常に溶け込むヘアスタイルを一緒に作りましょう。
+    </div>
+    <div class="intro">
+      小山市雨ケ谷に新しくOPENした「hair salon NOA」✂️🌊<br>
+      "海沿いのカフェ"をイメージした、ゆったり落ち着ける美容室です。<br>
+      店内にはサーフボードが飾ってあって、まるで海の近くにいるみたいな気分に。<br>
+      ヘアだけじゃなくて、来てくれた人に少しでもリラックスしてもらえる空間をつくりました ☕️✨
     </div>
   </section>
 
