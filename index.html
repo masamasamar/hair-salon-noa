@@ -60,7 +60,7 @@
     nav ul { list-style: none; display: flex; gap: 32px; }
     nav ul a { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; text-decoration: none; color: var(--black); font-size: 21px; letter-spacing: 0.05em; text-transform: lowercase; transition: color 0.2s; }
     nav ul a:hover { color: var(--gray); }
-    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-ig { display: flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
     .nav-ig:hover { opacity: 0.7; }
     .nav-ig svg { width: 20px; height: 20px; }
@@ -747,16 +747,6 @@
     <div class="logo">
       <img src="images/logo.png" alt="hair salon NOA" class="logo-img">
     </div>
-    <ul>
-      <li><a href="#concept">CONCEPT</a></li>
-      <li><a href="#styles">STYLE</a></li>
-      <li><a href="#menu">MENU</a></li>
-      <li><a href="#products">PRODUCTS</a></li>
-      <li><a href="#instagram">INSTAGRAM</a></li>
-      <li><a href="#reviews">REVIEWS</a></li>
-      <li><a href="#access">ACCESS</a></li>
-      <li><a href="#reserve">RESERVE</a></li>
-    </ul>
     <div class="nav-right">
       <a href="https://www.instagram.com/hair.salon.noa/" target="_blank" class="nav-ig" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -773,6 +763,16 @@
           <circle cx="17.5" cy="6.5" r="1" fill="url(#nav-ig-grad)"/>
         </svg>
       </a>
+      <ul>
+        <li><a href="#concept">CONCEPT</a></li>
+        <li><a href="#styles">STYLE</a></li>
+        <li><a href="#menu">MENU</a></li>
+        <li><a href="#products">PRODUCTS</a></li>
+        <li><a href="#instagram">INSTAGRAM</a></li>
+        <li><a href="#reviews">REVIEWS</a></li>
+        <li><a href="#access">ACCESS</a></li>
+        <li><a href="#reserve">RESERVE</a></li>
+      </ul>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -961,10 +961,18 @@
   <section id="instagram">
     <div class="section-label">Instagram</div>
     <div class="ig-header">
-      <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+      <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="ig-section-grad" cx="30%" cy="110%" r="150%">
+            <stop offset="0%" stop-color="#fdf497"/>
+            <stop offset="25%" stop-color="#fd5949"/>
+            <stop offset="55%" stop-color="#d6249f"/>
+            <stop offset="90%" stop-color="#285AEB"/>
+          </radialGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-section-grad)" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4" stroke="url(#ig-section-grad)" stroke-width="1.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-section-grad)"/>
       </svg>
       <a href="https://www.instagram.com/hair.salon.noa/" target="_blank">@hair.salon.noa</a>
     </div>
