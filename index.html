@@ -123,6 +123,7 @@
     }
     .hero-slide:nth-child(1) .fallback { background: #d4c9bc; }
     .hero-slide:nth-child(2) .fallback { background: #c4bdb5; }
+    .hero-slide:nth-child(3) .fallback { background: #bab5ae; }
 
     .hero-overlay {
       position: absolute;
@@ -801,6 +802,10 @@
       <img src="images/hero2.jpg" alt="hair salon NOA 店内" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
       <div class="fallback" style="display:none"></div>
     </div>
+    <div class="hero-slide">
+      <img src="images/hero3.JPG" alt="hair salon NOA 店内" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
+      <div class="fallback" style="display:none"></div>
+    </div>
 
     <div class="hero-overlay">
       <h1>hair salon NOA</h1>
@@ -814,6 +819,7 @@
     <div class="hero-dots">
       <span class="active" onclick="goSlide(0)"></span>
       <span onclick="goSlide(1)"></span>
+      <span onclick="goSlide(2)"></span>
     </div>
   </div>
 
