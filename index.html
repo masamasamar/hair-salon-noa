@@ -60,6 +60,38 @@
     nav ul { list-style: none; display: flex; gap: 32px; }
     nav ul a { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; text-decoration: none; color: var(--black); font-size: 21px; letter-spacing: 0.05em; text-transform: lowercase; transition: color 0.2s; }
     nav ul a:hover { color: var(--gray); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-ig { display: flex; align-items: center; color: var(--black); text-decoration: none; transition: color 0.2s; }
+    .nav-ig:hover { color: var(--gray); }
+    .nav-ig svg { width: 20px; height: 20px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--black); transition: all 0.3s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(237,250,253,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .mobile-menu a:hover { color: var(--gray); }
 
     /* ========== ヒーロースライダー ========== */
     .hero {
@@ -697,6 +729,7 @@
     /* ========== レスポンシブ ========== */
     @media (max-width: 768px) {
       nav ul { display: none; }
+      .hamburger { display: flex; }
       .hero-overlay h1 { font-size: 30px; }
       .style-grid { grid-template-columns: repeat(2, 1fr); }
       .menu-list { padding: 8px 24px; }
@@ -724,7 +757,31 @@
       <li><a href="#access">ACCESS</a></li>
       <li><a href="#reserve">RESERVE</a></li>
     </ul>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/hair.salon.noa/" target="_blank" class="nav-ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#concept" class="mobile-nav-link">concept</a>
+    <a href="#styles" class="mobile-nav-link">style</a>
+    <a href="#menu" class="mobile-nav-link">menu</a>
+    <a href="#products" class="mobile-nav-link">products</a>
+    <a href="#instagram" class="mobile-nav-link">instagram</a>
+    <a href="#reviews" class="mobile-nav-link">reviews</a>
+    <a href="#access" class="mobile-nav-link">access</a>
+    <a href="#reserve" class="mobile-nav-link">reserve</a>
+  </div>
 
   <!-- ヒーロースライダー -->
   <div class="hero">
@@ -1110,6 +1167,22 @@
     }, { threshold: 0.12 });
 
     fadeTargets.forEach(el => observer.observe(el));
+
+    // ハンバーガーメニュー
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
   </script>
 
 </body>
