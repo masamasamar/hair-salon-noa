@@ -630,6 +630,17 @@
     footer a { color: var(--ocean-chill); text-decoration: none; margin: 0 16px; }
     footer a:hover { color: var(--ocean-teal); }
 
+    /* ========== スクロールアニメーション ========== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* ========== レスポンシブ ========== */
     @media (max-width: 768px) {
       nav ul { display: none; }
@@ -984,6 +995,44 @@
     }
 
     timer = setInterval(nextSlide, 5000);
+  </script>
+
+  <!-- スクロールアニメーションJS -->
+  <script>
+    // アニメーション対象を選択
+    const fadeTargets = [
+      ...document.querySelectorAll('.section-label'),
+      ...document.querySelectorAll('#concept .lead, #concept .body'),
+      ...document.querySelectorAll('.style-card'),
+      ...document.querySelectorAll('.owner-wrap'),
+      ...document.querySelectorAll('.product-slide'),
+      ...document.querySelectorAll('.menu-card'),
+      ...document.querySelectorAll('.review-card'),
+      ...document.querySelectorAll('.ig-link'),
+      ...document.querySelectorAll('.access-grid'),
+      ...document.querySelectorAll('#reserve p'),
+    ];
+
+    // stagger（順番に少しずらして表示）
+    fadeTargets.forEach((el, i) => {
+      el.classList.add('fade-up');
+    });
+
+    // グリッド系は子要素ごとに少しずらす
+    document.querySelectorAll('.style-card, .menu-card, .review-card').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    fadeTargets.forEach(el => observer.observe(el));
   </script>
 
 </body>
