@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hair salon NOA | 栃木県小山市</title>
+  <!--
+    【画像の設定方法】
+    このHTMLファイルと同じフォルダに "images" フォルダを作り、
+    以下のファイル名で画像を保存してください：
+      images/hero1.jpg  → アップロードした美容室内観写真（大きい方）
+      images/hero2.webp  → アップロードした美容室内観写真（明るい方）
+      images/style1.png → 赤系カラー（ブリーチなし）の写真
+      images/style2.png → ベージュ・ブロンドボブの写真
+      images/style3.png → パープル系ボブの写真
+      images/style4.png → ダークグレーハイライトの写真
+  -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #1a1a1a;
+      --gray: #888;
+      --light: #f5f3f0;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ========== ナビ ========== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
+    }
+    nav .logo { font-size: 18px; letter-spacing: 0.2em; font-weight: 300; }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav ul a { text-decoration: none; color: var(--black); font-size: 12px; letter-spacing: 0.12em; transition: color 0.2s; }
+    nav ul a:hover { color: var(--gray); }
+
+    /* ========== ヒーロースライダー ========== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      margin-top: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* 画像がない場合のフォールバック */
+    .hero-slide .fallback {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-slide:nth-child(1) .fallback { background: #d4c9bc; }
+    .hero-slide:nth-child(2) .fallback { background: #c4bdb5; }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.32);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-overlay h1 {
+      font-size: 52px;
+      font-weight: 200;
+      letter-spacing: 0.35em;
+      color: #fff;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .hero-overlay p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.2em;
+      line-height: 2.2;
+      margin-bottom: 48px;
+    }
+    .hero-overlay .cta {
+      display: inline-block;
+      padding: 14px 48px;
+      border: 1px solid rgba(255,255,255,0.8);
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      transition: all 0.3s;
+    }
+    .hero-overlay .cta:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* スライダードット */
+    .hero-dots {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    .hero-dots span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero-dots span.active { background: #fff; }
+
+    /* ========== セクション共通 ========== */
+    section {
+      padding: 100px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 56px;
+    }
+
+    /* ========== コンセプト ========== */
+    #concept { border-top: 1px solid #eee; }
+    #concept .lead {
+      font-size: 28px;
+      font-weight: 200;
+      line-height: 1.9;
+      color: var(--black);
+      letter-spacing: 0.04em;
+    }
+    #concept .body {
+      margin-top: 36px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 2.2;
+    }
+
+    /* ========== オーナー ========== */
+    #owner { border-top: 1px solid #eee; }
+    .owner-wrap {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .owner-message {
+      font-size: 26px;
+      font-weight: 200;
+      line-height: 1.9;
+      color: var(--black);
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+    }
+    .owner-name {
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.2em;
+    }
+
+    /* ========== スタイル例 ========== */
+    #styles {
+      background: var(--light);
+      max-width: 100%;
+      padding: 100px 0;
+    }
+    #styles .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+    .style-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: #ccc;
+    }
+    .style-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .style-card:hover img { transform: scale(1.04); }
+    .style-card .caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px 16px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.5));
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .style-card:hover .caption { opacity: 1; }
+
+    /* 画像なしフォールバック */
+    .style-card .no-img {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: #999; letter-spacing: 0.1em;
+    }
+    .style-card:nth-child(1) .no-img { background: #c9a9a0; }
+    .style-card:nth-child(2) .no-img { background: #c8b89a; }
+    .style-card:nth-child(3) .no-img { background: #9a8090; }
+    .style-card:nth-child(4) .no-img { background: #888888; }
+
+    /* ========== メニュー ========== */
+    #menu { border-top: 1px solid #eee; }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .menu-item {
+      background: var(--light);
+      padding: 40px 32px;
+    }
+    .menu-item h3 { font-size: 17px; font-weight: 300; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .menu-item p { font-size: 13px; color: var(--gray); line-height: 1.9; }
+    .menu-item .price { margin-top: 20px; font-size: 12px; color: #aaa; }
+
+    /* ========== 使用薬剤 ========== */
+    #products {
+      background: var(--black);
+      max-width: 100%;
+      padding: 100px 0;
+    }
+    #products .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    #products .section-label { color: #555; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .product-card {
+      background: #1a1a1a;
+      padding: 48px 40px;
+      border: 1px solid #2a2a2a;
+    }
+    .product-brand {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    .product-name {
+      font-size: 22px;
+      font-weight: 200;
+      color: #fff;
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .product-tag {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: #888;
+      border: 1px solid #333;
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: #888;
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+    .product-note {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+    }
+    .product-link {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #aaa;
+      text-decoration: none;
+      border-bottom: 1px solid #444;
+      padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .product-link:hover { color: #fff; border-color: #888; }
+    @media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; } }
+
+    /* ========== Instagram ========== */
+    #instagram {
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+    .ig-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .ig-header .ig-icon {
+      width: 28px; height: 28px;
+    }
+    .ig-header a {
+      font-size: 14px;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
+    .ig-header a:hover { color: var(--gray); }
+
+    /* Instagram埋め込みグリッド */
+    .ig-embed-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+      max-width: 880px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ig-embed-grid .ig-embed-wrap {
+      display: flex;
+      justify-content: center;
+    }
+    /* Instagram埋め込みの幅を揃える */
+    .ig-embed-grid blockquote.instagram-media {
+      min-width: unset !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    .ig-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 13px 44px;
+      border: 1px solid var(--black);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      transition: all 0.3s;
+    }
+    .ig-link:hover { background: var(--black); color: #fff; }
+
+    /* ========== アクセス ========== */
+    #access { border-top: 1px solid #eee; }
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .access-info dl {}
+    .access-info dt {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+    .access-info dt:first-child { margin-top: 0; }
+    .access-info dd { font-size: 14px; color: var(--black); line-height: 1.8; margin-top: 4px; }
+    .access-info dd a { color: var(--black); }
+
+    .map-wrap {
+      border-radius: 2px;
+      overflow: hidden;
+      height: 360px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ========== 予約 ========== */
+    #reserve {
+      background: var(--black);
+      max-width: 100%;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    #reserve .section-label { color: #555; }
+    #reserve h2 {
+      font-size: 30px;
+      font-weight: 200;
+      color: #fff;
+      letter-spacing: 0.25em;
+      margin-bottom: 20px;
+    }
+    #reserve p {
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      margin-bottom: 48px;
+      line-height: 2.2;
+    }
+    #reserve a.reserve-btn {
+      display: inline-block;
+      padding: 15px 56px;
+      background: #fff;
+      color: var(--black);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      transition: background 0.3s;
+    }
+    #reserve a.reserve-btn:hover { background: #ccc; }
+
+    /* ========== フッター ========== */
+    footer {
+      background: #111;
+      color: #555;
+      text-align: center;
+      padding: 40px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+    footer .footer-links { margin-bottom: 16px; }
+    footer a { color: #555; text-decoration: none; margin: 0 16px; }
+    footer a:hover { color: #aaa; }
+
+    /* ========== レスポンシブ ========== */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero-overlay h1 { font-size: 30px; }
+      .style-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-grid { grid-template-columns: 1fr; }
+      .access-grid { grid-template-columns: 1fr; }
+      .ig-embed-grid { grid-template-columns: 1fr; }
+      section { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ナビ -->
+  <nav>
+    <div class="logo">hair salon NOA</div>
+    <ul>
+      <li><a href="#concept">CONCEPT</a></li>
+      <li><a href="#styles">STYLE</a></li>
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#products">PRODUCTS</a></li>
+      <li><a href="#instagram">INSTAGRAM</a></li>
+      <li><a href="#access">ACCESS</a></li>
+      <li><a href="#reserve">RESERVE</a></li>
+    </ul>
+  </nav>
+
+  <!-- ヒーロースライダー -->
+  <div class="hero">
+    <div class="hero-slide active">
+      <img src="images/hero1.jpg" alt="hair salon NOA 店内" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
+      <div class="fallback" style="display:none"></div>
+    </div>
+    <div class="hero-slide">
+      <img src="images/hero2.webp" alt="hair salon NOA 店内" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
+      <div class="fallback" style="display:none"></div>
+    </div>
+
+    <div class="hero-overlay">
+      <h1>hair salon NOA</h1>
+      <p>
+        手入れの楽さ、おしゃれ、かっこいいを<br>
+        当たり前の日常へ
+      </p>
+      <a href="#reserve" class="cta">LINE で予約する</a>
+    </div>
+
+    <div class="hero-dots">
+      <span class="active" onclick="goSlide(0)"></span>
+      <span onclick="goSlide(1)"></span>
+    </div>
+  </div>
+
+  <!-- コンセプト -->
+  <section id="concept">
+    <div class="section-label">Concept</div>
+    <div class="lead">
+      毎日をもっと、楽に。<br>もっと、おしゃれに。
+    </div>
+    <div class="body">
+      hair salon NOA は、栃木県小山市に2025年12月オープンした美容室です。<br>
+      オーナー・大橋一智が、お客様一人ひとりに合ったスタイルをご提案します。<br>
+      「手入れが楽でおしゃれ」を合言葉に、日常に溶け込むヘアスタイルを一緒に作りましょう。
+    </div>
+  </section>
+
+  <!-- オーナー挨拶 -->
+  <section id="owner">
+    <div class="section-label">Owner</div>
+    <div class="owner-wrap">
+      <div class="owner-text">
+        <div class="owner-message">
+          任せておけば大丈夫です。<br>なんでもお気軽にご相談ください。
+        </div>
+        <div class="owner-name">オーナー　大橋</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- スタイル例 -->
+  <div id="styles">
+    <div class="inner">
+      <div class="section-label">Style</div>
+      <div class="style-grid">
+        <div class="style-card">
+          <img src="images/style1.png" alt="ブリーチなし赤系カラー"
+            onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
+          <div class="no-img" style="display:none">Red Color</div>
+          <div class="caption">ブリーチなし赤系カラー</div>
+        </div>
+        <div class="style-card">
+          <img src="images/style2.png" alt="ベージュブロンドボブ"
+            onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
+          <div class="no-img" style="display:none">Blonde Bob</div>
+          <div class="caption">ベージュブロンドボブ</div>
+        </div>
+        <div class="style-card">
+          <img src="images/style3.png" alt="パープル系ボブ"
+            onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
+          <div class="no-img" style="display:none">Purple Bob</div>
+          <div class="caption">パープル系ボブ</div>
+        </div>
+        <div class="style-card">
+          <img src="images/style4.png" alt="ダークグレーハイライト"
+            onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
+          <div class="no-img" style="display:none">Dark Highlight</div>
+          <div class="caption">ダークグレーハイライト</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- メニュー -->
+  <section id="menu">
+    <div class="section-label">Menu</div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <h3>カット</h3>
+        <p>骨格・髪質に合わせた、扱いやすいカット。毎日のスタイリングが楽になります。</p>
+        <div class="price">料金はお問い合わせください</div>
+      </div>
+      <div class="menu-item">
+        <h3>カラー</h3>
+        <p>修正カラーからグラデーション、ブリーチまで。繊細な技術でご希望の色を再現します。</p>
+        <div class="price">料金はお問い合わせください</div>
+      </div>
+      <div class="menu-item">
+        <h3>ブリーチ・ハイライト</h3>
+        <p>グラデーション・ハイライトなど、こだわりのブリーチ技術でおしゃれな仕上がりに。</p>
+        <div class="price">料金はお問い合わせください</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用薬剤 -->
+  <div id="products">
+    <div class="inner">
+      <div class="section-label">Products</div>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-brand">ARIMINO</div>
+          <h3 class="product-name">エクラリティ<br>ダイヤボンドフォース</h3>
+          <div class="product-tag">洗い流さないヘアトリートメント</div>
+          <p class="product-desc">
+            ダイヤボンドMEA技術搭載。色落ちしにくく美しく保つ。<br>
+            1本で6つのお悩み（色落ち・湿気・紫外線・乾燥・摩擦・ツヤ感の低下）に対応。<br>
+            カラー直後の髪のお守りとして、ダメージしにくくツヤのある髪へ。
+          </p>
+          <div class="product-note">130mL / ジャスミン＆ペアーの香り</div>
+          <a href="https://www.arimino.co.jp/products/eclarity/db-force/" target="_blank" class="product-link">詳細を見る</a>
+        </div>
+        <div class="product-card">
+          <div class="product-brand">DEMI COSMETICS</div>
+          <h3 class="product-name">ELEVATE<br>スタイリングライン</h3>
+          <div class="product-tag">スタイリング剤</div>
+          <p class="product-desc">
+            『スタイルキープビーズ』配合で、時間とともに出る皮脂を吸着しスタイルを長時間キープ。<br>
+            ドライワックス・ジェルワックス・ハードワックスなどなりたいスタイルに合わせて選べるラインナップ。
+          </p>
+          <div class="product-note">グリーンフローラルの香り / 各85〜180g ¥1,980（税込）</div>
+          <a href="https://www.demi.nicca.co.jp/elevate/styling.html" target="_blank" class="product-link">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instagram -->
+  <section id="instagram">
+    <div class="section-label">Instagram</div>
+    <div class="ig-header">
+      <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+      </svg>
+      <a href="https://www.instagram.com/hair.salon.noa/" target="_blank">@hair.salon.noa</a>
+    </div>
+
+    <div class="ig-embed-grid">
+      <div class="ig-embed-wrap">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/hair.salon.noa/p/DTjsXcMkiT8/"
+          data-instgrm-version="14"
+          style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+        </blockquote>
+      </div>
+      <div class="ig-embed-wrap">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/hair.salon.noa/p/DRzV915koWT/"
+          data-instgrm-version="14"
+          style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+        </blockquote>
+      </div>
+    </div>
+
+    <a href="https://www.instagram.com/hair.salon.noa/" target="_blank" class="ig-link">
+      Instagram をもっと見る
+    </a>
+  </section>
+
+  <!-- アクセス -->
+  <section id="access">
+    <div class="section-label">Access</div>
+    <div class="access-grid">
+      <dl class="access-info">
+        <dt>店名</dt>
+        <dd>hair salon NOA</dd>
+        <dt>住所</dt>
+        <dd>栃木県小山市雨ケ谷</dd>
+        <dt>営業時間</dt>
+        <dd>詳細はLINEにてご確認ください</dd>
+        <dt>定休日</dt>
+        <dd>詳細はLINEにてご確認ください</dd>
+        <dt>予約</dt>
+        <dd><a href="https://lin.ee/k1pLlI8" target="_blank">LINE（lin.ee/k1pLlI8）</a></dd>
+        <dt>Instagram</dt>
+        <dd><a href="https://www.instagram.com/hair.salon.noa/" target="_blank">@hair.salon.noa</a></dd>
+      </dl>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=hair+salon+NOA+栃木県小山市雨ケ谷&output=embed&hl=ja&z=16"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 予約 -->
+  <div id="reserve">
+    <div class="section-label">Reserve</div>
+    <h2>ご予約はLINEから</h2>
+    <p>
+      お気軽にご相談ください。<br>
+      お悩みや希望スタイルをLINEでお伝えいただけます。
+    </p>
+    <a href="https://lin.ee/k1pLlI8" target="_blank" class="reserve-btn">LINE で予約する</a>
+  </div>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/hair.salon.noa/" target="_blank">Instagram</a>
+      <a href="https://lin.ee/k1pLlI8" target="_blank">LINE予約</a>
+    </div>
+    <div>© 2025 hair salon NOA. All rights reserved.</div>
+  </footer>
+
+  <!-- Instagram埋め込みスクリプト -->
+  <script async src="//www.instagram.com/embed.js"></script>
+
+  <!-- ヒーロースライダーJS -->
+  <script>
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dots span');
+    let current = 0;
+    let timer;
+
+    function goSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = n;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      clearInterval(timer);
+      timer = setInterval(nextSlide, 5000);
+    }
+
+    function nextSlide() {
+      goSlide((current + 1) % slides.length);
+    }
+
+    timer = setInterval(nextSlide, 5000);
+  </script>
+
+</body>
+</html>
