@@ -385,6 +385,75 @@
     }
     .ig-link:hover { background: var(--black); color: #fff; }
 
+    /* ========== Google口コミ ========== */
+    #reviews { border-top: 1px solid #eee; }
+    .reviews-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .reviews-rating-big {
+      font-size: 48px;
+      font-weight: 200;
+      line-height: 1;
+      color: var(--black);
+    }
+    .reviews-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .reviews-stars {
+      color: #f4b400;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+    .reviews-count {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.15em;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 32px;
+    }
+    .review-card {
+      background: var(--light);
+      padding: 32px 28px;
+    }
+    .review-stars {
+      color: #f4b400;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .review-text {
+      font-size: 13px;
+      color: var(--black);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+    .review-author {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.15em;
+    }
+    .reviews-link {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .reviews-link:hover { color: var(--black); border-color: #888; }
+    @media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } }
+
     /* ========== アクセス ========== */
     #access { border-top: 1px solid #eee; }
     .access-grid {
@@ -486,6 +555,7 @@
       <li><a href="#menu">MENU</a></li>
       <li><a href="#products">PRODUCTS</a></li>
       <li><a href="#instagram">INSTAGRAM</a></li>
+      <li><a href="#reviews">REVIEWS</a></li>
       <li><a href="#access">ACCESS</a></li>
       <li><a href="#reserve">RESERVE</a></li>
     </ul>
@@ -530,19 +600,6 @@
     </div>
   </section>
 
-  <!-- オーナー挨拶 -->
-  <section id="owner">
-    <div class="section-label">Owner</div>
-    <div class="owner-wrap">
-      <div class="owner-text">
-        <div class="owner-message">
-          任せておけば大丈夫です。<br>なんでもお気軽にご相談ください。
-        </div>
-        <div class="owner-name">オーナー　大橋</div>
-      </div>
-    </div>
-  </section>
-
   <!-- スタイル例 -->
   <div id="styles">
     <div class="inner">
@@ -583,17 +640,14 @@
       <div class="menu-item">
         <h3>カット</h3>
         <p>骨格・髪質に合わせた、扱いやすいカット。毎日のスタイリングが楽になります。</p>
-        <div class="price">料金はお問い合わせください</div>
       </div>
       <div class="menu-item">
         <h3>カラー</h3>
         <p>修正カラーからグラデーション、ブリーチまで。繊細な技術でご希望の色を再現します。</p>
-        <div class="price">料金はお問い合わせください</div>
       </div>
       <div class="menu-item">
         <h3>ブリーチ・ハイライト</h3>
         <p>グラデーション・ハイライトなど、こだわりのブリーチ技術でおしゃれな仕上がりに。</p>
-        <div class="price">料金はお問い合わせください</div>
       </div>
     </div>
   </section>
@@ -664,6 +718,49 @@
     </a>
   </section>
 
+  <!-- Instagram後のオーナー挨拶 -->
+  <section id="owner">
+    <div class="section-label">Owner</div>
+    <div class="owner-wrap">
+      <div class="owner-text">
+        <div class="owner-message">
+          なんでもお気軽にご相談ください。
+        </div>
+        <div class="owner-name">オーナー　大橋</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google口コミ -->
+  <section id="reviews">
+    <div class="section-label">Reviews</div>
+    <div class="reviews-header">
+      <div class="reviews-rating-big">5.0</div>
+      <div class="reviews-meta">
+        <div class="reviews-stars">★★★★★</div>
+        <div class="reviews-count">Google 26件のクチコミ</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">パーマをかけたくて来店したんですが、とても親身に相談にのってくれて話しやすく、初めて来る人にもおすすめだと思います。パーマの仕上がりもとてもよかったので次回以降も継続して行きたいと思います！</p>
+        <div class="review-author">ルイルイ</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">カットとカラーの為、初めて行きました。お店の雰囲気も店長の人柄も凄く素敵で、こちらの要望にも対応してもらい理想の髪型に仕上げてもらいました。また行きたいなぁーと思う美容室です♪</p>
+        <div class="review-author">M Sz</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">とてもキレイで雰囲気のいいお店で、オーナーさんもスタッフさんも気さくで居心地も良かったです♪ 髪型の提案や、セットのやり方も丁寧に説明してくれて、カラーもカットも満足でした。</p>
+        <div class="review-author">ちびちび</div>
+      </div>
+    </div>
+    <a href="https://www.google.com/maps/place/hair+salon+NOA/" target="_blank" class="reviews-link">Google でもっと見る</a>
+  </section>
+
   <!-- アクセス -->
   <section id="access">
     <div class="section-label">Access</div>
@@ -674,9 +771,9 @@
         <dt>住所</dt>
         <dd>栃木県小山市雨ケ谷</dd>
         <dt>営業時間</dt>
-        <dd>詳細はLINEにてご確認ください</dd>
+        <dd>10:00〜20:00</dd>
         <dt>定休日</dt>
-        <dd>詳細はLINEにてご確認ください</dd>
+        <dd>なし</dd>
         <dt>予約</dt>
         <dd><a href="https://lin.ee/k1pLlI8" target="_blank">LINE（lin.ee/k1pLlI8）</a></dd>
         <dt>Instagram</dt>
