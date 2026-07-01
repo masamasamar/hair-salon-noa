@@ -1133,16 +1133,11 @@
   <script>
     // アニメーション対象を選択
     const fadeTargets = [
-      ...document.querySelectorAll('.section-label'),
+      ...document.querySelectorAll('#concept .section-label, #styles .section-label, #menu .section-label, #products .section-label'),
       ...document.querySelectorAll('#concept .lead, #concept .body'),
       ...document.querySelectorAll('.style-card'),
-      ...document.querySelectorAll('.owner-wrap'),
       ...document.querySelectorAll('.product-img-wrap'),
       ...document.querySelectorAll('.product-card'),
-      ...document.querySelectorAll('.menu-item'),
-      ...document.querySelectorAll('.review-card'),
-      ...document.querySelectorAll('.ig-link'),
-      ...document.querySelectorAll('#reserve p'),
     ];
 
     // stagger（順番に少しずらして表示）
@@ -1151,7 +1146,7 @@
     });
 
     // グリッド系は子要素ごとに少しずらす
-    document.querySelectorAll('.style-card, .menu-item, .review-card').forEach((el, i) => {
+    document.querySelectorAll('.style-card').forEach((el, i) => {
       el.style.transitionDelay = `${(i % 4) * 0.08}s`;
     });
 
