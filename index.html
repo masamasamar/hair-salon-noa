@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>hair salon NOA | 栃木県小山市</title>
+  <title>hair salon NOA | æ æ¨çå°å±±å¸</title>
   <!--
-    【画像の設定方法】
-    このHTMLファイルと同じフォルダに "images" フォルダを作り、
-    以下のファイル名で画像を保存してください：
-      images/hero1.jpg  → アップロードした美容室内観写真（大きい方）
-      images/hero2.webp  → アップロードした美容室内観写真（明るい方）
-      images/style1.png → 赤系カラー（ブリーチなし）の写真
-      images/style2.png → ベージュ・ブロンドボブの写真
-      images/style3.png → パープル系ボブの写真
-      images/style4.png → ダークグレーハイライトの写真
+    ãç»åã®è¨­å®æ¹æ³ã
+    ãã®HTMLãã¡ã¤ã«ã¨åããã©ã«ãã« "images" ãã©ã«ããä½ãã
+    ä»¥ä¸ã®ãã¡ã¤ã«åã§ç»åãä¿å­ãã¦ãã ããï¼
+      images/hero1.jpg  â ã¢ããã­ã¼ãããç¾å®¹å®¤åè¦³åçï¼å¤§ããæ¹ï¼
+      images/hero2.webp  â ã¢ããã­ã¼ãããç¾å®¹å®¤åè¦³åçï¼æããæ¹ï¼
+      images/style1.png â èµ¤ç³»ã«ã©ã¼ï¼ããªã¼ããªãï¼ã®åç
+      images/style2.png â ãã¼ã¸ã¥ã»ãã­ã³ãããã®åç
+      images/style3.png â ãã¼ãã«ç³»ããã®åç
+      images/style4.png â ãã¼ã¯ã°ã¬ã¼ãã¤ã©ã¤ãã®åç
   -->
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Serif+JP:wght@200;300&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600;1,700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --black: #0d3d6e;
@@ -42,7 +42,7 @@
       color: var(--black);
     }
 
-    /* ========== ナビ ========== */
+    /* ========== ãã ========== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -61,9 +61,12 @@
     nav ul a { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; text-decoration: none; color: var(--black); font-size: 21px; letter-spacing: 0.05em; text-transform: lowercase; transition: color 0.2s; }
     nav ul a:hover { color: var(--gray); }
     .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-line { display: none; align-items: center; text-decoration: none; transition: opacity 0.2s; }
+    .nav-line:hover { opacity: 0.7; }
+    .nav-line img { width: 26px; height: 26px; object-fit: contain; }
     .nav-ig { display: none; align-items: center; text-decoration: none; transition: opacity 0.2s; }
     .nav-ig:hover { opacity: 0.7; }
-    .nav-ig svg { width: 20px; height: 20px; }
+    .nav-ig svg { width: 26px; height: 26px; }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--black); transition: all 0.3s; transform-origin: center; }
     .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -93,7 +96,7 @@
     }
     .mobile-menu a:hover { color: var(--gray); }
 
-    /* ========== ヒーロースライダー ========== */
+    /* ========== ãã¼ã­ã¼ã¹ã©ã¤ãã¼ ========== */
     .hero {
       position: relative;
       height: 100vh;
@@ -116,7 +119,7 @@
       object-position: center;
     }
 
-    /* 画像がない場合のフォールバック */
+    /* ç»åããªãå ´åã®ãã©ã¼ã«ããã¯ */
     .hero-slide .fallback {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
@@ -170,7 +173,7 @@
       border-color: #3DDAD7;
     }
 
-    /* スライダードット */
+    /* ã¹ã©ã¤ãã¼ããã */
     .hero-dots {
       position: absolute;
       bottom: 32px;
@@ -189,7 +192,7 @@
     }
     .hero-dots span.active { background: #fff; }
 
-    /* ========== セクション共通 ========== */
+    /* ========== ã»ã¯ã·ã§ã³å±é ========== */
     section {
       padding: 100px 40px;
       max-width: 960px;
@@ -207,7 +210,7 @@
       text-align: center;
     }
 
-    /* ========== コンセプト ========== */
+    /* ========== ã³ã³ã»ãã ========== */
     #concept { border-top: 2px solid var(--ocean-chill); }
     #concept .lead {
       font-family: 'Noto Serif JP', serif;
@@ -236,7 +239,7 @@
       border-left: 3px solid #c8b99a;
     }
 
-    /* ========== オーナー ========== */
+    /* ========== ãªã¼ãã¼ ========== */
     #owner { border-top: 2px solid var(--ocean-chill); }
     .owner-wrap {
       display: flex;
@@ -289,7 +292,7 @@
       .owner-title { font-size: 11px; }
     }
 
-    /* ========== スタイル例 ========== */
+    /* ========== ã¹ã¿ã¤ã«ä¾ ========== */
     #styles {
       background: var(--light);
       max-width: 100%;
@@ -331,7 +334,7 @@
     }
     .style-card:hover .caption { opacity: 1; }
 
-    /* 画像なしフォールバック */
+    /* ç»åãªããã©ã¼ã«ããã¯ */
     .style-card .no-img {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
@@ -342,7 +345,7 @@
     .style-card:nth-child(3) .no-img { background: #9a8090; }
     .style-card:nth-child(4) .no-img { background: #888888; }
 
-    /* ========== メニュー ========== */
+    /* ========== ã¡ãã¥ã¼ ========== */
     #menu { border-top: 2px solid var(--ocean-chill); }
     .menu-list {
       background: var(--ocean-glass);
@@ -377,7 +380,7 @@
     }
     .menu-item p { font-size: 13px; color: var(--gray); line-height: 2.1; }
 
-    /* ========== 使用薬剤スライダー ========== */
+    /* ========== ä½¿ç¨è¬å¤ã¹ã©ã¤ãã¼ ========== */
     #products {
       background: var(--ocean-deep);
       max-width: 100%;
@@ -434,7 +437,7 @@
       font-size: 22px;
       font-weight: 400;
       color: #fff;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.02em;
       line-height: 1.6;
       margin-bottom: 12px;
     }
@@ -471,7 +474,7 @@
     }
     .product-link:hover { color: #fff; border-color: var(--ocean-teal); }
 
-    /* スライダーナビ */
+    /* ã¹ã©ã¤ãã¼ãã */
     .products-nav {
       display: flex;
       align-items: center;
@@ -532,7 +535,7 @@
     }
     .ig-header a:hover { color: var(--gray); }
 
-    /* Instagram埋め込みグリッド */
+    /* Instagramåãè¾¼ã¿ã°ãªãã */
     .ig-embed-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -546,7 +549,7 @@
       display: flex;
       justify-content: center;
     }
-    /* Instagram埋め込みの幅を揃える */
+    /* Instagramåãè¾¼ã¿ã®å¹ãæãã */
     .ig-embed-grid blockquote.instagram-media {
       min-width: unset !important;
       max-width: 100% !important;
@@ -566,7 +569,7 @@
     }
     .ig-link:hover { background: var(--ocean-blue); color: #fff; }
 
-    /* ========== Google口コミ ========== */
+    /* ========== Googleå£ã³ã ========== */
     #reviews { border-top: 2px solid var(--ocean-chill); }
     .reviews-header {
       display: flex;
@@ -635,7 +638,7 @@
     .reviews-link:hover { color: var(--black); border-color: #888; }
     @media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } }
 
-    /* ========== アクセス ========== */
+    /* ========== ã¢ã¯ã»ã¹ ========== */
     #access { border-top: 2px solid var(--ocean-chill); }
     .access-grid {
       display: grid;
@@ -666,7 +669,7 @@
       border: none;
     }
 
-    /* ========== 予約 ========== */
+    /* ========== äºç´ ========== */
     #reserve {
       background: linear-gradient(135deg, var(--ocean-deep) 0%, #1a5a9a 100%);
       max-width: 100%;
@@ -703,7 +706,7 @@
     #reserve a.reserve-btn:hover { background: #e0e0e0; }
     .line-btn-icon { width: 28px; height: 28px; flex-shrink: 0; }
 
-    /* ========== フッター ========== */
+    /* ========== ããã¿ã¼ ========== */
     footer {
       background: #0a2240;
       color: var(--ocean-chill);
@@ -716,7 +719,7 @@
     footer a { color: var(--ocean-chill); text-decoration: none; margin: 0 16px; }
     footer a:hover { color: var(--ocean-teal); }
 
-    /* ========== スクロールアニメーション ========== */
+    /* ========== ã¹ã³ã¬ã¼ã«ã¢ãã¡ã¼ã·ã§ã³ ========== */
     .fade-up {
       opacity: 0;
       transform: translateY(28px);
@@ -727,10 +730,11 @@
       transform: translateY(0);
     }
 
-    /* ========== レスポンシブ ========== */
+    /* ========== ã¬ã¹ãã³ã·ã ========== */
     @media (max-width: 768px) {
       nav ul { display: none; }
       .hamburger { display: flex; }
+      .nav-line { display: flex; }
       .nav-ig { display: flex; }
       .hero-overlay h1 { font-size: 30px; }
       .style-grid { grid-template-columns: repeat(2, 1fr); }
@@ -744,12 +748,15 @@
 </head>
 <body>
 
-  <!-- ナビ -->
+  <!-- ãã -->
   <nav>
     <div class="logo">
       <img src="images/logo.png" alt="hair salon NOA" class="logo-img">
     </div>
     <div class="nav-right">
+      <a href="https://lin.ee/k1pLlI8" target="_blank" class="nav-line" aria-label="LINE">
+        <img src="images/LINE.png" alt="LINE">
+      </a>
       <a href="https://www.instagram.com/hair.salon.noa/" target="_blank" class="nav-ig" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -775,13 +782,13 @@
         <li><a href="#access">ACCESS</a></li>
         <li><a href="#reserve">RESERVE</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <button class="hamburger" id="hamburger" aria-label="ã¡ãã¥ã¼ãéã">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- モバイルメニュー -->
+  <!-- ã¢ãã¤ã«ã¡ãã¥ã¼ -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#concept" class="mobile-nav-link">concept</a>
     <a href="#styles" class="mobile-nav-link">style</a>
@@ -793,28 +800,28 @@
     <a href="#reserve" class="mobile-nav-link">reserve</a>
   </div>
 
-  <!-- ヒーロースライダー -->
+  <!-- ãã¼ã­ã¼ã¹ã©ã¤ãã¼ -->
   <div class="hero">
     <div class="hero-slide active">
-      <img src="images/hero1.JPG" alt="hair salon NOA 店内" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
+      <img src="images/hero1.JPG" alt="hair salon NOA åºå" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
       <div class="fallback" style="display:none"></div>
     </div>
     <div class="hero-slide">
-      <img src="images/hero2.jpg" alt="hair salon NOA 店内" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
+      <img src="images/hero2.jpg" alt="hair salon NOA åºå" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
       <div class="fallback" style="display:none"></div>
     </div>
     <div class="hero-slide">
-      <img src="images/hero3.JPG" alt="hair salon NOA 店内" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
+      <img src="images/hero3.JPG" alt="hair salon NOA åºå" onerror="this.style.display='none';this.parentElement.querySelector('.fallback').style.display='flex'">
       <div class="fallback" style="display:none"></div>
     </div>
 
     <div class="hero-overlay">
       <h1>hair salon NOA</h1>
       <p>
-        手入れの楽さ、おしゃれ、かっこいいを<br>
-        当たり前の日常へ
+        æå¥ãã®æ¥½ããããããããã£ãããã<br>
+        å½ããåã®æ¥å¸¸ã¸
       </p>
-      <a href="#reserve" class="cta">LINE で予約する</a>
+      <a href="#reserve" class="cta">LINE ã§äºç´ãã</a>
     </div>
 
     <div class="hero-dots">
@@ -824,141 +831,141 @@
     </div>
   </div>
 
-  <!-- コンセプト -->
+  <!-- ã³ã³ã»ãã -->
   <section id="concept">
     <div class="section-label">Concept</div>
     <div class="lead">
-      毎日をもっと、楽に。<br>もっと、おしゃれに。
+      æ¯æ¥ããã£ã¨ãæ¥½ã«ã<br>ãã£ã¨ãããããã«ã
     </div>
     <div class="body">
-      "海沿いのカフェ"をイメージした、<br>
-      ゆったり落ち着ける美容室です。<br>
-      まるで海の近くにいるみたいな気分に。<br>
-      ヘアだけじゃなくて、来てくれた人に少しでも<br>
-      リラックスしてもらえる空間をつくりました。<br>
+      "æµ·æ²¿ãã®ã«ãã§"ãã¤ã¡ã¼ã¸ããã<br>
+      ãã£ããè½ã¡çããç¾å®¹å®¤ã§ãã<br>
+      ã¾ãã§æµ·ã®è¿ãã«ããã¿ãããªæ°åã«ã<br>
+      ãã¢ã ããããªãã¦ãæ¥ã¦ãããäººã«å°ãã§ã<br>
+      ãªã©ãã¯ã¹ãã¦ããããç©ºéãã¤ããã¾ããã<br>
       <br>
-      お気軽にご相談ください。<br>
-      お悩みや希望スタイルをLINEで<br>
-      お伝えいただけます。
+      ãæ°è»½ã«ãç¸è«ãã ããã<br>
+      ãæ©ã¿ãå¸æã¹ã¿ã¤ã«ãLINEã§<br>
+      ãä¼ãããã ãã¾ãã
     </div>
   </section>
 
-  <!-- スタイル例 -->
+  <!-- ã¹ã¿ã¤ã«ä¾ -->
   <div id="styles">
     <div class="inner">
       <div class="section-label">Style</div>
       <div class="style-grid">
         <div class="style-card">
-          <img src="images/style1.png" alt="ブリーチなし赤系カラー"
+          <img src="images/style1.png" alt="ããªã¼ããªãèµ¤ç³»ã«ã©ã¼"
             onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
           <div class="no-img" style="display:none">Red Color</div>
-          <div class="caption">ブリーチなし赤系カラー</div>
+          <div class="caption">ããªã¼ããªãèµ¤ç³»ã«ã©ã¼</div>
         </div>
         <div class="style-card">
-          <img src="images/style2.png" alt="ベージュブロンドボブ"
+          <img src="images/style2.png" alt="ãã¼ã¸ã¥ãã­ã³ããã"
             onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
           <div class="no-img" style="display:none">Blonde Bob</div>
-          <div class="caption">ベージュブロンドボブ</div>
+          <div class="caption">ãã¼ã¸ã¥ãã­ã³ããã</div>
         </div>
         <div class="style-card">
-          <img src="images/style3.png" alt="パープル系ボブ"
+          <img src="images/style3.png" alt="ãã¼ãã«ç³»ãã"
             onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
           <div class="no-img" style="display:none">Purple Bob</div>
-          <div class="caption">パープル系ボブ</div>
+          <div class="caption">ãã¼ãã«ç³»ãã</div>
         </div>
         <div class="style-card">
-          <img src="images/style4.png" alt="ダークグレーハイライト"
+          <img src="images/style4.png" alt="ãã¼ã¯ã°ã¬ã¼ãã¤ã©ã¤ã"
             onerror="this.style.display='none';this.parentElement.querySelector('.no-img').style.display='flex'">
           <div class="no-img" style="display:none">Dark Highlight</div>
-          <div class="caption">ダークグレーハイライト</div>
+          <div class="caption">ãã¼ã¯ã°ã¬ã¼ãã¤ã©ã¤ã</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- メニュー -->
+  <!-- ã¡ãã¥ã¼ -->
   <section id="menu">
     <div class="section-label">Menu</div>
     <div class="menu-list">
       <div class="menu-item">
         <div class="menu-num">01</div>
-        <div><h3>カット</h3><p>骨格・髪質に合わせた、扱いやすいカット。毎日のスタイリングが楽になります。</p></div>
+        <div><h3>ã«ãã</h3><p>éª¨æ ¼ã»é«ªè³ªã«åããããæ±ããããã«ãããæ¯æ¥ã®ã¹ã¿ã¤ãªã³ã°ãæ¥½ã«ãªãã¾ãã</p></div>
       </div>
       <div class="menu-item">
         <div class="menu-num">02</div>
-        <div><h3>カラー</h3><p>修正カラーからグラデーション、ブリーチまで。繊細な技術でご希望の色を再現します。</p></div>
+        <div><h3>ã«ã©ã¼</h3><p>ä¿®æ­£ã«ã©ã¼ããã°ã©ãã¼ã·ã§ã³ãããªã¼ãã¾ã§ãç¹ç´°ãªæè¡ã§ãå¸æã®è²ãåç¾ãã¾ãã</p></div>
       </div>
       <div class="menu-item">
         <div class="menu-num">03</div>
-        <div><h3>ブリーチ・ハイライト</h3><p>グラデーション・ハイライトなど、こだわりのブリーチ技術でおしゃれな仕上がりに。</p></div>
+        <div><h3>ããªã¼ãã»ãã¤ã©ã¤ã</h3><p>ã°ã©ãã¼ã·ã§ã³ã»ãã¤ã©ã¤ããªã©ããã ããã®ããªã¼ãæè¡ã§ãããããªä»ä¸ããã«ã</p></div>
       </div>
       <div class="menu-item">
         <div class="menu-num">04</div>
-        <div><h3>パーマ</h3><p>柔らかなウェーブからしっかりカールまで。骨格に合わせてご提案します。</p></div>
+        <div><h3>ãã¼ã</h3><p>æãããªã¦ã§ã¼ããããã£ããã«ã¼ã«ã¾ã§ãéª¨æ ¼ã«åããã¦ãææ¡ãã¾ãã</p></div>
       </div>
       <div class="menu-item">
         <div class="menu-num">05</div>
-        <div><h3>トリートメント</h3><p>ダメージを補修し、ツヤと手触りを整えます。カラーやブリーチ後のケアにも。</p></div>
+        <div><h3>ããªã¼ãã¡ã³ã</h3><p>ãã¡ã¼ã¸ãè£ä¿®ãããã¤ã¨æè§¦ããæ´ãã¾ããã«ã©ã¼ãããªã¼ãå¾ã®ã±ã¢ã«ãã</p></div>
       </div>
     </div>
     <div style="text-align:center; padding: 36px 0; margin-top: 8px; background:#fff;">
       <a href="https://lin.ee/k1pLlI8" target="_blank"
          style="display:inline-block; padding:12px 40px; border:1px solid var(--ocean-chill); background:rgba(174,217,218,0.25); color:var(--ocean-deep); text-decoration:none; font-size:11px; letter-spacing:0.28em; transition:background 0.3s;">
-        予約する
+        äºç´ãã
       </a>
     </div>
   </section>
 
-  <!-- 使用薬剤 -->
+  <!-- ä½¿ç¨è¬å¤ -->
   <div id="products">
     <div class="inner">
       <div class="section-label">Products</div>
       <div class="products-slider-wrap">
         <div class="products-slider" id="productsSlider">
 
-          <!-- スライド1: ELEVATE -->
+          <!-- ã¹ã©ã¤ã1: ELEVATE -->
           <div class="product-slide">
             <div class="product-img-wrap">
-              <img src="images/ELEVATE.webp" alt="ELEVATE スタイリングライン"
+              <img src="images/ELEVATE.webp" alt="ELEVATE ã¹ã¿ã¤ãªã³ã°ã©ã¤ã³"
                 onerror="this.style.opacity='0'">
             </div>
             <div class="product-card">
               <div class="product-brand">DEMI COSMETICS</div>
-              <h3 class="product-name">ELEVATE<br>スタイリングライン</h3>
-              <div class="product-tag">スタイリング剤</div>
-              <p class="product-desc">スタイルを長時間キープ。なりたいスタイルに合わせて選べるラインナップ。</p>
-              <div class="product-note">各85〜180g ¥1,980（税込）</div>
-              <a href="https://www.demi.nicca.co.jp/elevate/styling.html" target="_blank" class="product-link">詳細を見る</a>
+              <h3 class="product-name">ELEVATE<br>ã¹ã¿ã¤ãªã³ã°ã©ã¤ã³</h3>
+              <div class="product-tag">ã¹ã¿ã¤ãªã³ã°å¤</div>
+              <p class="product-desc">ã¹ã¿ã¤ã«ãé·æéã­ã¼ãããªãããã¹ã¿ã¤ã«ã«åããã¦é¸ã¹ãã©ã¤ã³ãããã</p>
+              <div class="product-note">å85ã180g Â¥1,980ï¼ç¨è¾¼ï¼</div>
+              <a href="https://www.demi.nicca.co.jp/elevate/styling.html" target="_blank" class="product-link">è©³ç´°ãè¦ã</a>
             </div>
           </div>
 
-          <!-- スライド2: ARIMINO -->
+          <!-- ã¹ã©ã¤ã2: ARIMINO -->
           <div class="product-slide">
             <div class="product-img-wrap">
-              <img src="images/ARIMINO.webp" alt="ARIMINO エクラリティ"
+              <img src="images/ARIMINO.webp" alt="ARIMINO ã¨ã¯ã©ãªãã£"
                 onerror="this.style.opacity='0'">
             </div>
             <div class="product-card">
               <div class="product-brand">ARIMINO</div>
-              <h3 class="product-name">エクラリティ<br>ダイヤボンドフォース</h3>
-              <div class="product-tag">洗い流さないヘアトリートメント</div>
-              <p class="product-desc">色落ちしにくく、ツヤのある髪へ。カラー後の髪を守る洗い流さないトリートメント。</p>
-              <div class="product-note">130mL / ジャスミン＆ペアーの香り</div>
-              <a href="https://www.arimino.co.jp/products/eclarity/db-force/" target="_blank" class="product-link">詳細を見る</a>
+              <h3 class="product-name">ã¨ã¯ã©ãªãã£<br>ãã¤ã¤ãã³ããã©ã¼ã¹</h3>
+              <div class="product-tag">æ´ãæµããªããã¢ããªã¼ãã¡ã³ã</div>
+              <p class="product-desc">è²è½ã¡ãã«ããããã¤ã®ããé«ªã¸ãã«ã©ã¼å¾ã®é«ªãå®ãæ´ãæµããªãããªã¼ãã¡ã³ãã</p>
+              <div class="product-note">130mL / ã¸ã£ã¹ãã³ï¼ãã¢ã¼ã®é¦ã</div>
+              <a href="https://www.arimino.co.jp/products/eclarity/db-force/" target="_blank" class="product-link">è©³ç´°ãè¦ã</a>
             </div>
           </div>
 
         </div><!-- /.products-slider -->
       </div><!-- /.products-slider-wrap -->
 
-      <!-- ナビゲーション -->
+      <!-- ããã²ã¼ã·ã§ã³ -->
       <div class="products-nav">
-        <button onclick="slideProduct(-1)" aria-label="前へ">&#8592;</button>
+        <button onclick="slideProduct(-1)" aria-label="åã¸">&#8592;</button>
         <div class="p-dots">
-          <button class="p-dot active" onclick="goProduct(0)" aria-label="1枚目"></button>
-          <button class="p-dot" onclick="goProduct(1)" aria-label="2枚目"></button>
+          <button class="p-dot active" onclick="goProduct(0)" aria-label="1æç®"></button>
+          <button class="p-dot" onclick="goProduct(1)" aria-label="2æç®"></button>
         </div>
-        <button onclick="slideProduct(1)" aria-label="次へ">&#8594;</button>
+        <button onclick="slideProduct(1)" aria-label="æ¬¡ã¸">&#8594;</button>
       </div>
 
     </div>
@@ -984,101 +991,84 @@
       <a href="https://www.instagram.com/hair.salon.noa/" target="_blank">@hair.salon.noa</a>
     </div>
 
-    <div class="ig-embed-grid">
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/hair.salon.noa/p/DTjsXcMkiT8/"
-          data-instgrm-version="14"
-          style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
-        </blockquote>
-      </div>
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/hair.salon.noa/p/DRzV915koWT/"
-          data-instgrm-version="14"
-          style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
-        </blockquote>
-      </div>
-    </div>
-
     <a href="https://www.instagram.com/hair.salon.noa/" target="_blank" class="ig-link">
-      Instagram をもっと見る
+      Instagram ããã£ã¨è¦ã
     </a>
   </section>
 
-  <!-- Instagram後のオーナー挨拶 -->
+  <!-- Instagramå¾ã®ãªã¼ãã¼æ¨æ¶ -->
   <section id="owner">
     <div class="section-label">Owner</div>
     <div class="owner-wrap">
       <div class="owner-img-wrap">
-        <img src="images/Owner.jpg" alt="オーナー 大橋" class="owner-img"
+        <img src="images/Owner.jpg" alt="ãªã¼ãã¼ å¤§æ©" class="owner-img"
           onerror="this.parentElement.style.display='none'">
       </div>
       <div class="owner-text">
         <div class="owner-message">
-          お客様の日常を楽に<br>
-          乾かすだけで可愛いかっこいいを作ります。<br>
-          何でもお気軽に相談ください。
+          ãå®¢æ§ã®æ¥å¸¸ãæ¥½ã«<br>
+          ä¹¾ããã ãã§å¯æããã£ããããä½ãã¾ãã<br>
+          ä½ã§ããæ°è»½ã«ç¸è«ãã ããã
         </div>
         <div class="owner-credit">
           <span class="owner-title">Hair Stylist &amp; Owner</span>
-          <span class="owner-name">大橋</span>
+          <span class="owner-name">å¤§æ©</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Google口コミ -->
+  <!-- Googleå£ã³ã -->
   <section id="reviews">
     <div class="section-label">Reviews</div>
     <div class="reviews-header">
       <div class="reviews-rating-big">5.0</div>
       <div class="reviews-meta">
-        <div class="reviews-stars">★★★★★</div>
-        <div class="reviews-count">Google 26件のクチコミ</div>
+        <div class="reviews-stars">âââââ</div>
+        <div class="reviews-count">Google 26ä»¶ã®ã¯ãã³ã</div>
       </div>
     </div>
     <div class="reviews-grid">
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">パーマをかけたくて来店したんですが、とても親身に相談にのってくれて話しやすく、初めて来る人にもおすすめだと思います。パーマの仕上がりもとてもよかったので次回以降も継続して行きたいと思います！</p>
-        <div class="review-author">ルイルイ</div>
+        <div class="review-stars">âââââ</div>
+        <p class="review-text">ãã¼ããããããã¦æ¥åºãããã§ãããã¨ã¦ãè¦ªèº«ã«ç¸è«ã«ã®ã£ã¦ããã¦è©±ãããããåãã¦æ¥ãäººã«ãããããã ã¨æãã¾ãããã¼ãã®ä»ä¸ãããã¨ã¦ãããã£ãã®ã§æ¬¡åä»¥éãç¶ç¶ãã¦è¡ãããã¨æãã¾ãï¼</p>
+        <div class="review-author">ã«ã¤ã«ã¤</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">カットとカラーの為、初めて行きました。お店の雰囲気も店長の人柄も凄く素敵で、こちらの要望にも対応してもらい理想の髪型に仕上げてもらいました。また行きたいなぁーと思う美容室です♪</p>
+        <div class="review-stars">âââââ</div>
+        <p class="review-text">ã«ããã¨ã«ã©ã¼ã®çºãåãã¦è¡ãã¾ããããåºã®é°å²æ°ãåºé·ã®äººæãåãç´ æµã§ããã¡ãã®è¦æã«ãå¯¾å¿ãã¦ãããçæ³ã®é«ªåã«ä»ä¸ãã¦ãããã¾ãããã¾ãè¡ããããªãã¼ã¨æãç¾å®¹å®¤ã§ãâª</p>
         <div class="review-author">M Sz</div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">とてもキレイで雰囲気のいいお店で、オーナーさんもスタッフさんも気さくで居心地も良かったです♪ 髪型の提案や、セットのやり方も丁寧に説明してくれて、カラーもカットも満足でした。</p>
-        <div class="review-author">ちびちび</div>
+        <div class="review-stars">âââââ</div>
+        <p class="review-text">ã¨ã¦ãã­ã¬ã¤ã§é°å²æ°ã®ãããåºã§ããªã¼ãã¼ãããã¹ã¿ãããããæ°ããã§å±å¿å°ãè¯ãã£ãã§ãâª é«ªåã®ææ¡ããã»ããã®ããæ¹ãä¸å¯§ã«èª¬æãã¦ããã¦ãã«ã©ã¼ãã«ãããæºè¶³ã§ããã</p>
+        <div class="review-author">ã¡ã³ã¡ã³</div>
       </div>
     </div>
-    <a href="https://www.google.com/maps/place/hair+salon+NOA/" target="_blank" class="reviews-link">Google でもっと見る</a>
+    <a href="https://www.google.com/maps/place/hair+salon+NOA/" target="_blank" class="reviews-link">Google ã§ãã£ã¨è¦ã</a>
   </section>
 
-  <!-- アクセス -->
+  <!-- ã¢ã¯ã»ã¹ -->
   <section id="access">
     <div class="section-label">Access</div>
     <div class="access-grid">
       <dl class="access-info">
-        <dt>店名</dt>
+        <dt>åºå</dt>
         <dd>hair salon NOA</dd>
-        <dt>住所</dt>
-        <dd>栃木県小山市雨ケ谷</dd>
-        <dt>営業時間</dt>
-        <dd>10:00〜20:00</dd>
-        <dt>定休日</dt>
-        <dd>なし</dd>
-        <dt>予約</dt>
-        <dd><a href="https://lin.ee/k1pLlI8" target="_blank">LINE（lin.ee/k1pLlI8）</a></dd>
+        <dt>ä½æ</dt>
+        <dd>æ æ¨çå°å±±å¸é¨ã±è°·</dd>
+        <dt>å¶æ¥­æé</dt>
+        <dd>10:00ã20:00</dd>
+        <dt>å®ä¼æ¥</dt>
+        <dd>ãªã</dd>
+        <dt>äºç´</dt>
+        <dd><a href="https://lin.ee/k1pLlI8" target="_blank">LINEï¼lin.ee/k1pLlI8ï¼</a></dd>
         <dt>Instagram</dt>
         <dd><a href="https://www.instagram.com/hair.salon.noa/" target="_blank">@hair.salon.noa</a></dd>
       </dl>
       <div class="map-wrap">
         <iframe
-          src="https://maps.google.com/maps?q=hair+salon+NOA+栃木県小山市雨ケ谷&output=embed&hl=ja&z=16"
+          src="https://maps.google.com/maps?q=hair+salon+NOA+æ æ¨çå°å±±å¸é¨ã±è°·&output=embed&hl=ja&z=16"
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
@@ -1087,33 +1077,30 @@
     </div>
   </section>
 
-  <!-- 予約 -->
+  <!-- äºç´ -->
   <div id="reserve">
     <div class="section-label">Reserve</div>
-    <h2>ご予約はLINEから</h2>
+    <h2>ãäºç´ã¯LINEãã</h2>
     <p>
-      お気軽にご相談ください。<br>
-      お悩みや希望スタイルをLINEでお伝えいただけます。
+      ãæ°è»½ã«ãç¸è«ãã ããã<br>
+      ãæ©ã¿ãå¸æã¹ã¿ã¤ã«ãLINEã§ãä¼ãããã ãã¾ãã
     </p>
     <a href="https://lin.ee/k1pLlI8" target="_blank" class="reserve-btn">
-      <img src="https://img.icons8.com/color/48/line-me.png" class="line-btn-icon" alt="LINE">
-      LINE で予約する
+      <img src="images/LINE.png" class="line-btn-icon" alt="LINE">
+      LINE ã§äºç´ãã
     </a>
   </div>
 
-  <!-- フッター -->
+  <!-- ããã¿ã¼ -->
   <footer>
     <div class="footer-links">
       <a href="https://www.instagram.com/hair.salon.noa/" target="_blank">Instagram</a>
-      <a href="https://lin.ee/k1pLlI8" target="_blank">LINE予約</a>
+      <a href="https://lin.ee/k1pLlI8" target="_blank">LINEäºç´</a>
     </div>
-    <div>© 2025 hair salon NOA. All rights reserved.</div>
+    <div>Â© 2026 hair salon NOA. All rights reserved.</div>
   </footer>
 
-  <!-- Instagram埋め込みスクリプト -->
-  <script async src="//www.instagram.com/embed.js"></script>
-
-  <!-- 薬剤スライダーJS -->
+  <!-- è¬å¤ã¹ã©ã¤ãã¼JS -->
   <script>
     let productCurrent = 0;
     const productSlides = document.querySelectorAll('.product-slide');
@@ -1130,7 +1117,7 @@
     }
   </script>
 
-  <!-- ヒーロースライダーJS -->
+  <!-- ãã¼ã­ã¼ã¹ã©ã¤ãã¼JS -->
   <script>
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.hero-dots span');
@@ -1154,9 +1141,9 @@
     timer = setInterval(nextSlide, 5000);
   </script>
 
-  <!-- スクロールアニメーションJS -->
+  <!-- ã¹ã¯ã­ã¼ã«ã¢ãã¡ã¼ã·ã§ã³JS -->
   <script>
-    // アニメーション対象を選択
+    // ã¢ãã¡ã¼ã·ã§ã³å¯¾è±¡ãé¸æ
     const fadeTargets = [
       ...document.querySelectorAll('.section-label'),
       ...document.querySelectorAll('#concept .lead, #concept .body'),
@@ -1170,12 +1157,12 @@
       ...document.querySelectorAll('#reserve p'),
     ];
 
-    // stagger（順番に少しずらして表示）
+    // staggerï¼é çªã«å°ããããã¦è¡¨ç¤ºï¼
     fadeTargets.forEach((el, i) => {
       el.classList.add('fade-up');
     });
 
-    // グリッド系は子要素ごとに少しずらす
+    // ã°ãªããç³»ã¯å­è¦ç´ ãã¨ã«å°ãããã
     document.querySelectorAll('.style-card, .menu-card, .review-card').forEach((el, i) => {
       el.style.transitionDelay = `${(i % 4) * 0.08}s`;
     });
@@ -1191,7 +1178,7 @@
 
     fadeTargets.forEach(el => observer.observe(el));
 
-    // ハンバーガーメニュー
+    // ãã³ãã¼ã¬ã¼ã¡ãã¥ã¼
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', () => {
