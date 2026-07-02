@@ -7,7 +7,7 @@
   <link rel="icon" href="images/logo2.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Serif+JP:wght@200;300&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Josefin+Sans:wght@300;400&family=Playfair+Display:wght@400;500&family=Noto+Serif+JP:wght@200;300&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600;1,700&display=block" rel="stylesheet">
   <!--
     【画像の設定方法】
     このHTMLファイルと同じフォルダに "images" フォルダを作り、
@@ -63,7 +63,7 @@
     nav .logo { display: flex; align-items: center; }
     nav .logo-img { height: 44px; width: auto; display: block; }
     nav ul { list-style: none; display: flex; gap: 32px; }
-    nav ul a { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; text-decoration: none; color: var(--black); font-size: 21px; letter-spacing: 0.05em; text-transform: lowercase; transition: color 0.2s; }
+    nav ul a { font-family: 'Josefin Sans', sans-serif; font-style: normal; font-weight: 400; text-decoration: none; color: var(--black); font-size: 18px; letter-spacing: 0.18em; text-transform: lowercase; transition: color 0.2s; }
     nav ul a:hover { color: var(--gray); }
     .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-line { display: none; align-items: center; text-decoration: none; transition: opacity 0.2s; }
@@ -90,9 +90,9 @@
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 700;
+      font-family: 'Josefin Sans', sans-serif;
+      font-style: normal;
+      font-weight: 300;
       font-size: 30px;
       letter-spacing: 0.1em;
       text-transform: lowercase;
@@ -204,11 +204,11 @@
       margin: 0 auto;
     }
     .section-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+      font-family: 'Josefin Sans', sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
       color: var(--ocean-blue);
       text-transform: lowercase;
       margin-bottom: 56px;
@@ -795,26 +795,48 @@
     /* ========== フローティング予約ボタン ========== */
     .float-reserve {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 32px;
+      right: 32px;
       z-index: 900;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 13px 24px;
+      gap: 12px;
+      padding: 14px 28px 14px 18px;
       background: #06C755;
       color: #fff;
       text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      box-shadow: 0 4px 24px rgba(6,199,85,0.38);
-      transition: all 0.25s;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(6,199,85,0.42), 0 1px 6px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateX(90px);
+      pointer-events: none;
+      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.34, 1.25, 0.64, 1), background 0.2s, box-shadow 0.2s;
     }
-    .float-reserve img { width: 22px; height: 22px; object-fit: contain; }
-    .float-reserve:hover {
-      background: #05b04c;
-      box-shadow: 0 8px 36px rgba(6,199,85,0.5);
-      transform: translateY(-2px);
+    .float-reserve.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .float-reserve img { width: 26px; height: 26px; object-fit: contain; flex-shrink: 0; }
+    .float-reserve .reserve-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.4;
+    }
+    .float-reserve .reserve-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      opacity: 0.82;
+    }
+    .float-reserve .reserve-main {
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      font-weight: 500;
+    }
+    .float-reserve.is-visible:hover {
+      background: #04a847;
+      box-shadow: 0 10px 36px rgba(6,199,85,0.55), 0 2px 10px rgba(0,0,0,0.1);
+      transform: translateX(0) translateY(-3px);
     }
     @media (max-width: 768px) {
       .float-reserve { display: none; }
@@ -822,6 +844,18 @@
 
     /* ========== デスクトップレイアウト改善 ========== */
     @media (min-width: 769px) {
+      nav ul a {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.2em;
+      }
+      nav ul { gap: 28px; }
+      nav { padding: 18px 48px; }
+      .section-label {
+        font-size: 30px;
+        letter-spacing: 0.18em;
+      }
       section {
         max-width: 1100px;
         padding: 100px 60px;
@@ -1220,7 +1254,10 @@
   <!-- フローティング予約ボタン（PC専用） -->
   <a href="https://lin.ee/k1pLlI8" target="_blank" class="float-reserve" aria-label="LINEで予約する">
     <img src="images/LINE.png" alt="LINE">
-    <span>LINE 予約</span>
+    <div class="reserve-text">
+      <span class="reserve-label">お気軽にどうぞ</span>
+      <span class="reserve-main">LINE で予約</span>
+    </div>
   </a>
 
   <!-- フッター -->
@@ -1304,6 +1341,14 @@
     }, { threshold: 0.12 });
 
     fadeTargets.forEach(el => observer.observe(el));
+
+    // フローティングボタン スクロール表示
+    const floatBtn = document.querySelector('.float-reserve');
+    if (floatBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 320) floatBtn.classList.add('is-visible');
+      }, { passive: true });
+    }
 
     // ハンバーガーメニュー
     const hamburger = document.getElementById('hamburger');
